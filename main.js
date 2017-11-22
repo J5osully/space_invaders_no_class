@@ -6,12 +6,8 @@ var enemyBullets = []
 function setup() {
     createCanvas(600, 400);
     background(0);
-    stroke(250, 110, 110)
-    line(0, 0, width, height)
-    playerPos = [1/2 * width, height - 10]
-
-    
-               
+    // Initialize players initial position.
+    playerPos = [1/2 * width, height - 10]               
 }
 
 function draw() {
@@ -22,7 +18,7 @@ function draw() {
     drawPlayer();
 }
 
-//Input Functions 
+
 
 // Bullet functions
 
@@ -89,4 +85,6 @@ function drawPlayer(){
     fill(100,0,100);//triangle color is purple
     triangle(x - size, y + size, x + size, y + size, x + 0, y - size);
 }
+
+
 //Enemy Functions
