@@ -44,9 +44,12 @@ function drawBullets (bulletArr, colorString){
 }
 
 function moveBullets(bulletArr, dy){
-    for (i=0; i<bulletArr.length; i++){
-      //bulletArr[i][1] = bulletArr[i][1] + dy;
-      bulletArr[i][1] += dy;
+    for (i=bulletArr.length - 1; i>=0; i--){
+      bulletArr[i][1] += dy; // moves bullets
+      //deletes bullets above and below screen
+      if (bulletArr[i][1]<0 || bulletArr[i][1] > height){
+          bulletArr.splice(i,1);
+      }
     }
     return bulletArr;
 }
@@ -76,6 +79,14 @@ function movePlayer(dx, dy){
 }
 
 function drawPlayer(){
-    drawBullets([[playerPos[0], playerPos[1]]], "green")
+    var size = 20;
+    var x = playerPos[0];
+    var y = playerPos[1];
+    noStroke();
+    fill(10,250,200);//rectangle color is teal
+    rectMode(CENTER);
+    rect(x, y, size, size);
+    fill(100,0,100);//triangle color is purple
+    triangle(x - size, y + size, x + size, y + size, x + 0, y - size);
 }
 //Enemy Functions
